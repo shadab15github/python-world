@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>python-world</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, sans-serif;
+      max-width: 42rem;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+    h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+    .sub { opacity: 0.65; font-size: 0.9rem; margin-top: 0; }
+    section { border-top: 1px solid rgba(128,128,128,0.3); padding: 1.25rem 0; }
+    h2 { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.6; margin: 0 0 0.75rem; }
+    dl { display: grid; grid-template-columns: auto 1fr; gap: 0.4rem 1.25rem; margin: 0; }
+    dt { opacity: 0.6; }
+    dd { margin: 0; }
+    code { font-family: ui-monospace, monospace; font-size: 0.9em; }
+    .error { color: #b3261e; }
+    footer { opacity: 0.5; font-size: 0.8rem; padding-top: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>python-world</h1>
+  <p class="sub">One page, four old packages, on purpose.</p>
+
+  <section>
+    <h2>Dates &mdash; arrow 1.2.3</h2>
+    <dl>
+      <dt>Now</dt><dd><code>{{ now_iso }}</code></dd>
+      <dt>Weekday</dt><dd>{{ weekday }}</dd>
+      <dt>Since 2020</dt><dd>{{ now_human }}</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>HTTP &mdash; requests 2.25.1</h2>
+    {% if error %}
+      <p class="error">Request failed: {{ error }}</p>
+      <p>The page still renders offline &mdash; only this section needs network.</p>
+    {% else %}
+      <dl>
+        <dt>Repo</dt><dd>{{ repo.name }}</dd>
+        <dt>Stars</dt><dd>{{ repo.stars }}</dd>
+        <dt>Language</dt><dd>{{ repo.language }}</dd>
+        <dt>Last push</dt><dd>{{ repo.pushed }} <code>({{ repo.pushed_exact }})</code></dd>
+      </dl>
+    {% endif %}
+  </section>
+
+  <section>
+    <h2>Templating &mdash; Jinja2 3.1.2</h2>
+    <p>{{ summary or "No data to summarise." }}</p>
+  </section>
+
+  <section>
+    <h2>Server &mdash; Flask 2.2.2</h2>
+    <dl>
+      <dt>Your client</dt><dd><code>{{ client }}</code></dd>
+    </dl>
+  </section>
+
+  <footer>Pinned to vulnerable releases for remediation testing. Not production code.</footer>
+</body>
+</html>
