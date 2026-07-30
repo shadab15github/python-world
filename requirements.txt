@@ -7,7 +7,7 @@ Flask==2.2.2            # CVE-2023-30861  (session cookie leak via caching proxy
 requests==2.25.1        # CVE-2023-32681  (Proxy-Authorization leak on redirect)
                         # CVE-2024-35195  (verify=False persists for the session)
 arrow==1.2.3            # human-friendly dates (the "moment" of Python)
-Jinja2==3.1.2           # CVE-2024-22195  (XSS via xmlattr filter)
+Jinja2==3.1.6
                         # CVE-2024-34064  (xmlattr key injection)
 
 # --- transitive deps, pinned old on purpose so they show up too ---
